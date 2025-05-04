@@ -5,6 +5,8 @@ import cors from "cors";
 import { PORT as envPORT } from "./config/env.js";
 
 import authRouter from "./routes/auth.routes.js";
+import categoryRouter from "./routes/category.routes.js";
+import blogRouter from "./routes/blog.routes.js";
 
 import connectToDatabase from "./database/mongodb.js";
 
@@ -22,6 +24,8 @@ app.use(
 );
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/categories", categoryRouter);
+app.use("/api/v1/blogs", blogRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Blogs API! 📖");
